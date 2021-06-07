@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Form\RegistrationFormType;
 use App\Security\LoginFormAuthenticator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\BrowserKit\Request;
@@ -71,7 +72,7 @@ class AuthController extends AbstractController
             );
         }
 
-        return $this->render('registration/register.html.twig', [
+        return $this->render('auth/register.html.twig', [
             'registrationForm' => $form->createView(),
         ]);
     }
