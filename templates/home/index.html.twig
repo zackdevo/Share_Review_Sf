@@ -8,13 +8,26 @@
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+<section class="container">
+    <div class="row">
+        <div class="col-12">
+            <h2 class="h2 display-4 text-light text-center mb-3">Dernières reviews</h2>
+        </div>
+    </div>
+    <div class="row px-3 mb-4 justify-content-center">
+    {% for onePost in posts %}
+        <div class="card col-5 mb-3 mr-3">
+                <div id='get-content' class="card-body">
+                    <h5 class="card-title"> {{onePost.title }} </h5>
+                    <h6 class="card-subtitle mb-2 text-muted"> {{onePost.title}} </h6>
+                    <p class="card-text content">{{onePost.content}}</p>
+                    <p class="user_name card-text">@{{onePost.author.nickname}}</p>
+                    <a href="#" class="card-link">Voir toutes les reviews de cet utilistateur</a>
+                </div>
+            </div>
+    {% endfor %}
+    </div>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/wamp64/www/Share_Review_Sf/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/wamp64/www/Share_Review_Sf/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
-    </ul>
+</section>
 </div>
 {% endblock %}

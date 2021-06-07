@@ -58,6 +58,7 @@ class AuthController extends AbstractController
                     $form->get('plainPassword')->getData()
                 )
             );
+            $user->setRoles(["USER_ROLE"]);
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);

@@ -36,8 +36,9 @@ class AppFixtures extends Fixture
             $onePost = new Posts;
             $onePost->setCreatedAt($faker->dateTime($max = "now", null));
             $onePost->setTitle($faker->sentence(5));
-            $onePost->setSubtitle($faker->sentence(4));
+            $onePost->setSubtitle($faker->sentence(3));
             $onePost->setContent($faker->paragraph(4));
+            $onePost->setAuthor($user);
             $manager->persist($onePost);
         }
         $manager->flush();

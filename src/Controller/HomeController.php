@@ -23,7 +23,7 @@ class HomeController extends AbstractController
             $posts = $postRepo->findAll();
         }
         return $this->render('home/index.html.twig', [
-            'controller_name' => 'HomeController',
+            "posts" => $posts
         ]);
     }
 }
