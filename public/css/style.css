@@ -1,0 +1,48 @@
+#carouselExampleControls {
+    height: 500px;
+}
+
+.carousel-item {
+    background-size: cover;
+    padding: 222px 0;
+}
+.first-car {
+    background-image: url(../img/1st_gaming.jpg);
+}
+
+.second-car {
+    background-image: url(../img/2nd_gaming.jpg);
+}
+.third-car {
+    background-image: url(../img/3rd_gaming.jpg);
+}
+
+body {
+    background: -webkit-linear-gradient(to top, #2c3e50, #2980b9);
+    background: linear-gradient(to top, #2c3e50, #2980b9);
+}
+
+.navbar {
+background: -webkit-linear-gradient(to right, #2c3e50, #2980b9);
+background: linear-gradient(to right, #2c3e50, #2980b9);
+}
+
+#search-btn {
+    background-color: #2980b9 ;
+    border-color: #2c3e50;
+}
+
+#search-btn:hover {
+    background-color:#32aace ;
+}
+
+.st {
+    height: 100vh;
+}
+.bg-form {
+    background-color: rgba(255, 255, 255, 0.541);
+}
+
+.more-text {
+    display: none;
+}
