@@ -14,7 +14,6 @@ class CreateFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('create_at')
             ->add('title', null, [
                 'constraints' => [
                     new NotBlank([
@@ -47,8 +46,7 @@ class CreateFormType extends AbstractType
                         'message' => 'Le contenu de votre review est vide !',
                     ]),
                 ]
-            ])
-            ->add('author');
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

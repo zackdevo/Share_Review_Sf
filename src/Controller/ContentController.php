@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Posts;
+use App\Form\CreateFormType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -24,8 +25,13 @@ class ContentController extends AbstractController
      */
     public function create(Request $request): Response
     {
+        $posts = new Posts();
+        $form = $this->createForm(CreateFormType::class, $posts);
+        $form->handleRequest($request);
         $user = $this->getUser();
-        if ($user != null && $request->request->has("title") && $request->request->has("subtitle") && $request->request->has("content")) {
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
             $title = $request->request->get("title");
             $subtitle = $request->request->get("subtitle");
             $content = $request->request->get("content");
@@ -41,6 +47,8 @@ class ContentController extends AbstractController
             return $this->redirectToRoute('home');
         }
 
-        return $this->render('new/create.html.twig',  []);
+        return $this->render('new/create.html.twig',  [
+            'createForm' => $form->createView(),
+        ]);
     }
 }
