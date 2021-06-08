@@ -32,17 +32,10 @@ class ContentController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $title = $request->request->get("title");
-            $subtitle = $request->request->get("subtitle");
-            $content = $request->request->get("content");
-            $newPost = new Posts();
-            $newPost->setCreatedAt(new \DateTime());
-            $newPost->setAuthor($user);
-            $newPost->setTitle($title);
-            $newPost->setSubtitle($subtitle);
-            $newPost->setContent($content);
+            $posts->setCreatedAt(new \DateTime());
+            $posts->setAuthor($user);
             $manager = $this->getDoctrine()->getManager();
-            $manager->persist($newPost);
+            $manager->persist($posts);
             $manager->flush();
             return $this->redirectToRoute('home');
         }
